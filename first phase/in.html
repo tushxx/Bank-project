@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CREDMAN - Future of Credit Cards</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+      }
+
+      .glass {
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(10px);
+      }
+    </style>
+  </head>
+  <body
+    id="body"
+    class="bg-gradient-to-br from-black via-zinc-900 to-black text-white min-h-screen"
+  >
+  
+<!-- Header -->
+<header
+      id="header"
+      class="flex items-center justify-between px-10 py-6 border-b border-white/10 backdrop-blur-lg bg-white/5 sticky top-0 z-50"
+    >
+      <div
+        id="logo"
+        class="text-3xl font-extrabold tracking-tight text-purple-400 "
+      >
+    
+        CREDMAN
+      </div>
+      <nav id="nav-menu" class="hidden md:flex gap-10 text-sm font-medium">
+        <a id="nav-home" href="#hero" class="hover:text-purple-400 transition"
+          >Home</a>
+
+        
+        <a id="nav-Features" href="#features" class="hover:text-purple-400 transition"
+          >Features</a
+        >
+        <a id="nav-pricing" href="#credit-card-pricing-modal" class="hover:text-purple-400 transition"
+          >Pricing</a
+        >
+      </nav>
+      <button
+        id="contact-btn"
+        class="bg-purple-600 hover:bg-purple-800 px-6 py-2 rounded-xl font-semibold transition shadow-md"
+      >
+        Login / Signup
+      </button>
+    </header>
+
+<!-- ----------------------- -->
+
+
+<!-- Modal Background--------------------------- -->
+<div 
+id="auth-modal" class=" hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50" >
+  <!-- Modal Card -->
+  <div class="bg-white rounded-2xl shadow-xl w-full max-w-md p-6 relative">
+    <!-- Close Button -->
+    <button id="modal-close" class="absolute top-4 right-4 text-gray-400 hover:text-black">&times;</button>
+
+    <!-- Tabs -->
+    <div class="flex justify-center mb-6 space-x-4">
+      <button id="tab-login" class="tab-btn text-purple-600 font-semibold border-b-2 border-purple-600 pb-1" onclick="toggleForm('login')">Login</button>
+      <button id="tab-signup" class="tab-btn text-gray-500 hover:text-purple-600" onclick="toggleForm('signup')">Sign Up</button>
+    </div>
+
+    <!-- Login Form -->
+    <form id="login-form" class="space-y-4">
+      <input id="login-email" type="email" placeholder="Email" class="w-full border rounded-lg px-4 py-2" required />
+      <input id="login-password" type="password" placeholder="Password" class="w-full border rounded-lg px-4 py-2" required />
+      <button id="login-submit" type="submit" class="w-full bg-purple-600 text-white py-2 rounded-lg hover:bg-purple-800">Login</button>
+    </form>
+
+    <!-- Sign Up Form -->
+    <form id="signup-form" class="space-y-4 hidden">
+      <input id="signup-name" type="text" placeholder="Full Name" class="w-full border rounded-lg px-4 py-2" required />
+      <input id="signup-email" type="email" placeholder="Email" class="w-full border rounded-lg px-4 py-2" required />
+      <input id="signup-password" type="password" placeholder="Password" class="w-full border rounded-lg px-4 py-2" required />
+      <input id="signup-confirm-password" type="password" placeholder="Confirm Password" class="w-full border rounded-lg px-4 py-2" required />
+      <button id="signup-submit" type="submit" class="w-full bg-purple-600 text-white py-2 rounded-lg hover:bg-purple-700">Sign Up</button>
+    </form>
+  </div>
+</div>
+
+<!-- ----------------------- -->
+
+
+
+
+<!-- Hero Section -->
+    <section 
+    id="hero" class="text-center px-6 mt-28">
+      <h1
+        id="hero-heading"
+        class="text-5xl md:text-6xl font-bold max-w-4xl mx-auto leading-tight"
+      >
+        Your <span class="text-purple-500">card,</span> your
+        <span class="text-purple-500">control.</span>
+      </h1>
+      <p id="hero-subtext" class="text-gray-400 mt-6 max-w-xl mx-auto text-lg">
+        Master your money. Get real-time insights, control limits, and track
+        spending effortlessly.
+      </p>
+
+      <div
+        id="hero-image-container"
+        class="relative w-full mt-14 h-72 md:h-96 max-w-5xl mx-auto overflow-hidden rounded-3xl shadow-2xl"
+      >
+        <img
+          id="hero-image"
+          src="https://cdn.dribbble.com/userupload/12612372/file/original-bb8d35b27e410568adf1ac8c4e3cd387.png?resize=2048x1536&vertical=center"
+          alt="Card Image"
+          class="w-full h-full object-cover opacity-30"
+        />
+        <div
+          id="hero-buttons"
+          class="absolute inset-0 flex flex-col items-center justify-center z-10 gap-5"
+        >
+          <button
+            id="get-started-btn"
+            class="bg-purple-600 hover:bg-purple-800 px-10 py-4 rounded-xl font-semibold text-lg shadow-lg transition transform hover:scale-105">
+            Get Started
+          </button>
+          <button
+            id="contact-sales-btn"
+            class="text-purple-400 hover:underline transition"
+          >
+            Contact Sales
+          </button>
+        </div>
+      </div>
+    </section>
+   
+<!-- ----------------------- -->
+
+
+
+
+
+<!-- Features -->
+<section 
+id="features" class="mt-40  px-8 max-w-6xl mx-auto text-center">
+      <h2 id="features-heading" class="text-4xl font-bold mb-12">
+        Why Choose <span class="text-purple-500">CredMan?</span>
+      </h2>
+      <div id="features-grid" class="grid md:grid-cols-3 gap-10 text-left">
+        <div
+          id="feature-1"
+          class="glass p-6 rounded-2xl border border-white/10 hover:scale-[1.03] transition duration-300 shadow-xl"
+        >
+          <div class="text-purple-400 mb-3">
+            <i data-lucide="bell" class="w-7 h-7"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-2">Instant Alerts</h3>
+          <p class="text-gray-400">
+            Real-time push notifications for every transaction. Total
+            transparency.
+          </p>
+        </div>
+        <div
+          id="feature-2"
+          class="glass p-6 rounded-2xl border border-white/10 hover:scale-[1.03] transition duration-300 shadow-xl"
+        >
+          <div class="text-purple-400 mb-3">
+            <i data-lucide="bar-chart-3" class="w-7 h-7"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-2">Smart Budgeting</h3>
+          <p class="text-gray-400">
+            AI-powered suggestions and spending analysis that help save more.
+          </p>
+        </div>
+        <div
+          id="feature-3"
+          class="glass p-6 rounded-2xl border border-white/10 hover:scale-[1.03] transition duration-300 shadow-xl"
+        >
+          <div class="text-purple-400 mb-3">
+            <i data-lucide="globe" class="w-7 h-7"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-2">Global Payments</h3>
+          <p class="text-gray-400">
+            Zero-fee international transactions and currency support.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section 
+    id="user-types" class="mt-40 px-6 max-w-5xl mx-auto text-center">
+  <h2 class="text-4xl font-bold mb-10">Who is CredMan For?</h2>
+
+<!-- feature boxes----------------------------------------------- -->
+  <!-- Tab Buttons -->
+  <div class="flex justify-center space-x-4 mb-8">
+    <button class="tab-btn px-5 py-2 rounded-xl transition duration-300 ease-in-out bg-purple-700 text-white shadow-lg" onclick="showTab(event, 'students')">Students</button>
+    <button class="tab-btn px-5 py-2 rounded-xl transition duration-300 ease-in-out bg-gray-700 text-white shadow" onclick="showTab(event, 'professionals')">Professionals</button>
+    <button class="tab-btn px-5 py-2 rounded-xl transition duration-300 ease-in-out bg-gray-700 text-white shadow" onclick="showTab(event, 'businesses')">Businesses</button>
+  </div>
+
+<!-- Tab Contents -->
+  <section>
+    <div id="students" class="tab-content">
+    <div class="glass p-6 rounded-2xl shadow-xl border border-white/10 backdrop-blur-md bg-white/10">
+      <h3 class="text-2xl font-semibold mb-2 text-purple-400">Designed for Students</h3>
+      <p class="text-gray-300">Enjoy low-fee cards, budgeting tips, and educational offers tailored to students starting their financial journey.</p>
+    </div>
+    </div>
+    <div id="professionals" class="tab-content hidden">
+    <div class="glass p-6 rounded-2xl shadow-xl border border-white/10 backdrop-blur-md bg-white/10">
+      <h3 class="text-2xl font-semibold mb-2 text-purple-400">Perfect for Professionals</h3>
+      <p class="text-gray-300">Advanced features like real-time analytics, high cashback, and investment tools make CredMan your smart money partner.</p>
+    </div>
+    </div>
+    <div id="businesses" class="tab-content hidden">
+    <div class="glass p-6 rounded-2xl shadow-xl border border-white/10 backdrop-blur-md bg-white/10">
+      <h3 class="text-2xl font-semibold mb-2 text-purple-400">Built for Businesses</h3>
+      <p class="text-gray-300">Manage team expenses, issue employee cards, and get monthly statements — all in one place.</p>
+    </div>
+   </div>
+</section>
+</section>
+
+ <!-- ----------------------- -->
+
+
+
+ <!-- How It Works -->
+    
+    <div 
+    id="works" class="mt-40 px-6 max-w-5xl mx-auto text-center">
+      <h2 id="how-heading" class="text-4xl font-bold mb-12">How It Works</h2>
+      <div id="how-grid" class="grid md:grid-cols-3 gap-10 text-left">
+        <div id="step-1" class="glass p-6 rounded-xl border border-white/10">
+          <div class="text-purple-500 font-bold text-2xl mb-3">01</div>
+          <h4 class="text-lg font-semibold mb-2">Sign Up</h4>
+          <p class="text-gray-400">
+            Create your account in under 2 minutes using your email.
+          </p>
+        </div>
+        <div id="step-2" class="glass p-6 rounded-xl border border-white/10">
+          <div class="text-purple-500 font-bold text-2xl mb-3">02</div>
+          <h4 class="text-lg font-semibold mb-2">Link a Card</h4>
+          <p class="text-gray-400">
+            Connect your current bank or order a new CredMan card.
+          </p>
+        </div>
+        <div id="step-3" class="glass p-6 rounded-xl border border-white/10">
+          <div class="text-purple-500 font-bold text-2xl mb-3">03</div>
+          <h4 class="text-lg font-semibold mb-2">Spend Smarter</h4>
+          <p class="text-gray-400">
+            Track everything and unlock new savings opportunities.
+          </p>
+        </div>
+      </div>
+    </div>
+   
+<!-- ----------------------- -->
+
+  <!-- Pricing Modal (Hidden by default, toggle with JS) -->
+
+   <div 
+   id="credit-card-pricing-modal" class="hidden mt-20 inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+      <div class="bg-white rounded-2xl shadow-lg max-w-5xl w-full mx-4 p-6 relative">
+    
+      <!-- Close Button -->
+      <button id="close-modal" class="absolute top-4 right-4 text-gray-400 hover:text-black text-2xl font-bold">&times;</button>
+
+      <!-- Modal Header -->
+       <h2 class="text-2xl font-semibold text-center mb-6">Choose Your Card Plan</h2>
+
+      <!-- Pricing Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+      <!-- Silver Card -->
+      <div class="border rounded-xl p-6 text-center shadow hover:shadow-lg transition">
+        <h3 class="text-xl font-bold text-gray-700 mb-2">Silver</h3>
+        <p class="text-gray-500 mb-4">Great for everyday use</p>
+        <div class="text-3xl font-bold text-gray-700 mb-4">$10<span class="text-sm font-normal">/mo</span></div>
+        <ul class="text-gray-600 mb-6 space-y-2">
+          <li>✔ 2% Cashback</li>
+          <li>✔ No Annual Fee</li>
+          <li>✔ Basic Support</li>
+        </ul>
+        <button class="bg-gray-700 text-white px-4 py-2 rounded-lg hover:bg-gray-800">Select Silver</button>
+      </div>
+      
+      <!-- Platinum Card -->
+      <div class="border-2 border-gray-900 rounded-xl p-6 text-center shadow-xl">
+        <h3 class="text-xl font-bold text-gray-900 mb-2">Platinum</h3>
+        <p class="text-gray-500 mb-4">Elite perks and premium service</p>
+        <div class="text-3xl font-bold text-gray-900 mb-4">$50<span class="text-sm font-normal">/mo</span></div>
+        <ul class="text-gray-600 mb-6 space-y-2">
+          <li>✔ 10% Cashback</li>
+          <li>✔ 24/7 Concierge</li>
+          <li>✔ Airport Lounge Access</li>
+        </ul>
+        <button class="bg-black text-white px-4 py-2 rounded-lg hover:bg-gray-800">Select Platinum</button>
+      </div>
+      <!-- Gold Card -->
+      <div class="border-2 border-yellow-500 rounded-xl p-6 text-center shadow-lg">
+        <h3 class="text-xl font-bold text-yellow-600 mb-2">Gold</h3>
+        <p class="text-gray-500 mb-4">Best value for frequent users</p>
+        <div class="text-3xl font-bold text-yellow-600 mb-4">$25<span class="text-sm font-normal">/mo</span></div>
+        <ul class="text-gray-600 mb-6 space-y-2">
+          <li>✔ 5% Cashback</li>
+          <li>✔ Priority Support</li>
+          <li>✔ Travel Insurance</li>
+        </ul>
+        <button class="bg-yellow-500 text-white px-4 py-2 rounded-lg hover:bg-yellow-600">Select Gold</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+  
+<!-- ----------------------- -->
+
+
+
+    <!-- Testimonials -->
+<section 
+id="testimonials" class="mt-40 px-6 max-w-5xl mx-auto text-center">
+  <h2 id="testimonials-heading" class="text-4xl font-bold mb-12">Loved by Thousands</h2>
+
+  <div id="testimonial-slider" class="relative overflow-hidden text-left">
+    <div class="testimonial-slide glass p-6 rounded-xl border border-white/10 shadow-md">
+      <p class="italic text-gray-300">
+        "The best financial tool I've ever used. Everything's under control — no stress, no surprises!"
+      </p>
+      <div class="mt-4 text-purple-400 font-semibold">— Atharva Tijare., UX Designer</div>
+    </div>
+
+    <div class="testimonial-slide glass p-6 rounded-xl border border-white/10 shadow-md hidden">
+      <p class="italic text-gray-300">
+        "CredMan helped me save over ₹15k in just three months. The analytics are 🔥!"
+      </p>
+      <div class="mt-4 text-purple-400 font-semibold">— Yashraj Kolhe., Developer</div>
+    </div>
+
+    <div class="testimonial-slide glass p-6 rounded-xl border border-white/10 shadow-md hidden">
+      <p class="italic text-gray-300">
+        "A game-changer for managing expenses. I can't imagine budgeting without it anymore!"
+      </p>
+      <div class="mt-4 text-purple-400 font-semibold">— Gargee Rajput., Product Manager</div>
+    </div>
+  </div>
+</section>
+
+<!-- ----------------------- -->
+
+<!-- Footer -->
+    <footer 
+    id="footer" class="mt-40 text-center text-sm text-gray-500 pb-10">
+     <p class="mb-4">Made by &#9829- Tushar Shirke </p>
+      &copy; 2025 CREDMAN. All rights reserved.
+    </footer>
+
+    <script>
+      lucide.createIcons();
+
+    </script>
+    <script src="./script.js"></script>
+  </body>
+</html>
