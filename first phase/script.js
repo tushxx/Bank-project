@@ -1,28 +1,56 @@
 'use strict';
 
+// DOM references
 const modal = document.getElementById("auth-modal");
+const loginBtn = document.getElementById("contact-btn");
+const closeBtn = document.getElementById("modal-close");
 
-const login = document.getElementById("contact-btn");
+const loginForm = document.getElementById("login-form");
+const signupForm = document.getElementById("signup-form");
 
-const close = document.getElementById("modal-close");
+const loginTab = document.getElementById("tab-login");
+const signupTab = document.getElementById("tab-signup");
 
-const logintab = document.getElementById("tab-login");
-const signuptab = document.getElementById("tab-signup");
+const pricingModal = document.getElementById("credit-card-pricing-modal");
 
-const loginform = document.getElementById("login-form");
-const signupform = document.getElementById("signup-form");
+let isLoggedIn = false;
 
-
-
-//open-close
-login.addEventListener("click", function(e){
-    
-    modal.classList.remove("hidden");
-})
-close.addEventListener("click", function(e){
+// Open modal
+loginBtn.addEventListener("click", () => {
+  if (isLoggedIn) {
+    // Logout flow
+    isLoggedIn = false;
+    loginBtn.textContent = "Login / Signup";
+    document.getElementById("transaction-page").classList.add("hidden");
+    document.getElementById("allpage").classList.remove("hidden");
     modal.classList.add("hidden");
-})
+  } else {
+    modal.classList.remove("hidden");
+  }
+});
 
+// Close modal
+closeBtn.addEventListener("click", () => {
+  modal.classList.add("hidden");
+});
+
+// Login form submission
+loginForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const email = document.getElementById("login-email").value.trim();
+  const password = document.getElementById("login-password").value;
+
+  if (email === "user@credman.com" && password === "123456") {
+    isLoggedIn = true;
+    loginBtn.textContent = "Logout";
+    modal.classList.add("hidden");
+    document.getElementById("transaction-page").classList.remove("hidden");
+    document.getElementById("allpage").classList.add("hidden");
+  } else {
+    alert("Invalid credentials. Try user@credman.com / 123456");
+  }
+});
 
 //tab change
 function toggleForm(form) {
@@ -58,6 +86,10 @@ function toggleForm(form) {
     tabSignup.classList.remove(...inactiveClasses);
   }
 }
+
+
+
+
 //product modal
 const productmodal = document.getElementById("credit-card-pricing-modal");
 
@@ -103,21 +135,86 @@ document.querySelector("#nav-menu").addEventListener("click", function(e){
 })
  
 
-//
-{/* <script>
-  function showTab(event, id) {
-    document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
-    document.getElementById(id).classList.remove('hidden');
+// tab changing
+const tabbtn = document.querySelectorAll(".tab-btn");
+const tabcontent = document.querySelectorAll(".tab-content");
+document.querySelector("#user-types").addEventListener("click", function(e){
+  e.preventDefault();
+  console.log(e.target);
+  const targetBtn = e.target.closest("[href]");
+  //It searches for the closest ancestor (or the element itself) that matches a specified CSS selector. If a matching ancestor is found, the method returns that element; otherwise, it returns null.
 
-    document.querySelectorAll('.tab-btn').forEach(btn => {
-      btn.classList.remove('bg-purple-700', 'shadow-lg');
-      btn.classList.add('bg-gray-700', 'shadow');
+  //guard clause
+  if (!targetBtn) return;
+
+  // Remove active style from all buttons
+  tabbtn.forEach((btn) => {
+    btn.classList.remove("bg-purple-700");
+    btn.classList.add("bg-gray-700");
+  });
+
+  // Hide all content sections
+  tabcontent.forEach((section) => {
+    section.classList.add("hidden");
+  });
+
+  // Activate the clicked button
+  targetBtn.classList.remove("bg-gray-700");
+  targetBtn.classList.add("bg-purple-700");
+
+  //activate content section  area
+  const id = targetBtn.getAttribute("href");
+  document.querySelector(id).classList.remove("hidden");
+})
+
+
+////testimonal sliding
+
+
+  const slides = document.querySelectorAll(".testimonial-slide");
+  const dots = document.querySelectorAll(".dot");
+  let currentSlide = 0;
+
+  function showSlide(index) {
+    slides.forEach((slide, i) => {
+      slide.classList.toggle("hidden", i !== index);
+      dots[i].classList.toggle("bg-purple-700", i === index);
+      dots[i].classList.toggle("bg-gray-500", i !== index);
     });
-
-    event.target.classList.remove('bg-gray-700', 'shadow');
-    event.target.classList.add('bg-purple-700', 'shadow-lg');
+    currentSlide = index;
   }
-</script> */}
+
+  document.getElementById("next").addEventListener("click", () => {
+    const nextIndex = (currentSlide + 1) % slides.length;
+    showSlide(nextIndex);
+  });
+
+  document.getElementById("prev").addEventListener("click", () => {
+    const prevIndex = (currentSlide - 1 + slides.length) % slides.length;
+    showSlide(prevIndex);
+  });
+
+  dots.forEach((dot, index) => {
+    dot.addEventListener("click", () => {
+      showSlide(index);
+    });
+  });
+
+  // Initialize
+  showSlide(0);
+
+
+
+
+  
+
+
+
+
+
+
+
+
 
 
 

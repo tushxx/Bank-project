@@ -22,81 +22,144 @@
     </style>
   </head>
   <body
-    id="body"
-    class="bg-gradient-to-br from-black via-zinc-900 to-black text-white min-h-screen"
+  id="body"
+  class="bg-gradient-to-br from-black via-zinc-900 to-black text-white min-h-screen"
   >
   
+
+
+
 <!-- Header -->
 <header
-      id="header"
-      class="flex items-center justify-between px-10 py-6 border-b border-white/10 backdrop-blur-lg bg-white/5 sticky top-0 z-50"
-    >
-      <div
-        id="logo"
-        class="text-3xl font-extrabold tracking-tight text-purple-400 "
-      >
-    
-        CREDMAN
-      </div>
-      <nav id="nav-menu" class="hidden md:flex gap-10 text-sm font-medium">
-        <a id="nav-home" href="#hero" class="hover:text-purple-400 transition"
-          >Home</a>
-
-        
-        <a id="nav-Features" href="#features" class="hover:text-purple-400 transition"
-          >Features</a
-        >
-        <a id="nav-pricing" href="#credit-card-pricing-modal" class="hover:text-purple-400 transition"
-          >Pricing</a
-        >
-      </nav>
-      <button
-        id="contact-btn"
-        class="bg-purple-600 hover:bg-purple-800 px-6 py-2 rounded-xl font-semibold transition shadow-md"
-      >
-        Login / Signup
-      </button>
-    </header>
+id="header"
+class="flex items-center justify-between px-10 py-6 border-b border-white/10 backdrop-blur-lg bg-white/5 sticky top-0 z-50"
+>
+<div
+id="logo"
+class="text-3xl font-extrabold tracking-tight text-purple-400 "
+>
+CREDMAN
+</div>
+<nav id="nav-menu" class="md:flex gap-10 text-sm font-medium">
+  <a id="nav-home" href="#hero" class="hover:text-purple-400 transition"
+  >Home</a>
+  
+  
+  <a id="nav-Features" href="#features" class="hover:text-purple-400 transition"
+  >Features</a
+  >
+  <a id="nav-pricing" href="#credit-card-pricing-modal" class="hover:text-purple-400 transition"
+  >Pricing</a
+  >
+</nav>
+<button
+id="contact-btn"
+class="bg-purple-600 hover:bg-purple-800 px-6 py-2 rounded-xl font-semibold transition shadow-md"
+>
+Login / Signup
+</button>
+</header>
 
 <!-- ----------------------- -->
-
+<!-- transaction ----------- -->
+  <section id="transaction-page" class="hidden max-w-5xl mx-auto px-6 mt-20 grid grid-cols-1 md:grid-cols-2 gap-6" id="card-details">
+    <!-- Credit Card Info -->
+    <div class="bg-gradient-to-br from-purple-700 to-purple-900 p-6 rounded-2xl text-white shadow-xl">
+      <h2 class="text-xl font-bold mb-2">Your Credit Card</h2>
+      <div id="card-holder-name" class="text-sm">Card Holder: <strong>Tushar Shirke</strong></div>
+      <div id="card-number"class="text-sm">Card Number: •••• •••• •••• 1234</div>
+      <div id="card-expiry" class="text-sm">Expiry: 06/28</div>
+      <div id="card-balance" class="mt-4 text-lg font-semibold">Balance: ₹45,000</div>
+    </div>
+  
+    <!-- In / Out Transaction Flow -->
+    <div class="bg-white/10 backdrop-blur-lg p-6 rounded-2xl text-white border border-white/10 shadow-xl">
+      <h2 class="text-xl font-bold mb-4 text-purple-400">💼 In / Out</h2>
+      <ul id="transaction-list" class="space-y-2 text-sm">
+        <li class="flex justify-between">
+          <span>Salary Credited</span><span class="text-green-400">+ ₹25,000</span>
+        </li>
+        <li class="flex justify-between">
+          <span>Online Shopping</span><span class="text-red-400">– ₹3,500</span>
+        </li>
+        <li class="flex justify-between">
+          <span>Food & Dining</span><span class="text-red-400">– ₹1,200</span>
+        </li>
+      </ul>
+    </div>
+  
+    <!-- Transfer Money -->
+    <div class="bg-white/10 backdrop-blur-lg p-6 rounded-2xl text-white border border-white/10 shadow-xl">
+      <h2 class="text-xl font-bold mb-4 text-purple-400">💸 Transfer Money</h2>
+      <form class="space-y-4">
+        <input type="text" placeholder="Recipient Name" class="w-full p-2 rounded bg-white/20 text-white placeholder-white/60" />
+        <input type="number" placeholder="Amount (₹)" class="w-full p-2 rounded bg-white/20 text-white placeholder-white/60" />
+        <button type="submit" class="w-full bg-purple-600 hover:bg-purple-700 p-2 rounded text-white font-semibold">Send</button>
+      </form>
+    </div>
+  
+    <!-- Request Loan -->
+    <div class="bg-white/10 backdrop-blur-lg p-6 rounded-2xl text-white border border-white/10 shadow-xl">
+      <h2 class="text-xl font-bold mb-4 text-purple-400">🏦 Request Loan</h2>
+      <form class="space-y-4">
+        <input type="number" placeholder="Loan Amount (₹)" class="w-full p-2 rounded bg-white/20 text-white placeholder-white/60" />
+        <select class="w-full p-2 rounded bg-white/20 text-white placeholder-white/60">
+          <option>6 Months</option>
+          <option>12 Months</option>
+          <option>24 Months</option>
+        </select>
+        <button type="submit" class="w-full bg-purple-600 hover:bg-purple-700 p-2 rounded text-white font-semibold">Apply</button>
+      </form>
+    </div>
+  
+    <!-- Insights (Bonus Section) -->
+    <div class="bg-white/10 backdrop-blur-lg p-6 rounded-2xl text-white border border-white/10 shadow-xl col-span-full">
+      <h2 class="text-xl font-bold mb-4 text-purple-400">📊 Card Insights</h2>
+      <ul id="insight-list" class="text-sm space-y-2">
+        <li>🔁 Most spent category: <span class="text-yellow-300">Food & Dining</span></li>
+        <li>📈 Credit Utilization: <span class="text-blue-300">68%</span></li>
+        <li>⏳ Next Due Date: <span class="text-red-300">28 May 2025</span></li>
+      </ul>
+    </div>
+  </section>
 
 <!-- Modal Background--------------------------- -->
 <div 
 id="auth-modal" class=" hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50" >
-  <!-- Modal Card -->
-  <div class="bg-white rounded-2xl shadow-xl w-full max-w-md p-6 relative">
-    <!-- Close Button -->
-    <button id="modal-close" class="absolute top-4 right-4 text-gray-400 hover:text-black">&times;</button>
-
-    <!-- Tabs -->
-    <div class="flex justify-center mb-6 space-x-4">
-      <button id="tab-login" class="tab-btn text-purple-600 font-semibold border-b-2 border-purple-600 pb-1" onclick="toggleForm('login')">Login</button>
-      <button id="tab-signup" class="tab-btn text-gray-500 hover:text-purple-600" onclick="toggleForm('signup')">Sign Up</button>
-    </div>
-
-    <!-- Login Form -->
-    <form id="login-form" class="space-y-4">
-      <input id="login-email" type="email" placeholder="Email" class="w-full border rounded-lg px-4 py-2" required />
-      <input id="login-password" type="password" placeholder="Password" class="w-full border rounded-lg px-4 py-2" required />
-      <button id="login-submit" type="submit" class="w-full bg-purple-600 text-white py-2 rounded-lg hover:bg-purple-800">Login</button>
-    </form>
-
-    <!-- Sign Up Form -->
-    <form id="signup-form" class="space-y-4 hidden">
-      <input id="signup-name" type="text" placeholder="Full Name" class="w-full border rounded-lg px-4 py-2" required />
-      <input id="signup-email" type="email" placeholder="Email" class="w-full border rounded-lg px-4 py-2" required />
-      <input id="signup-password" type="password" placeholder="Password" class="w-full border rounded-lg px-4 py-2" required />
-      <input id="signup-confirm-password" type="password" placeholder="Confirm Password" class="w-full border rounded-lg px-4 py-2" required />
-      <button id="signup-submit" type="submit" class="w-full bg-purple-600 text-white py-2 rounded-lg hover:bg-purple-700">Sign Up</button>
-    </form>
+<!-- Modal Card -->
+<div class="bg-white rounded-2xl shadow-xl w-full max-w-md p-6 relative">
+  <!-- Close Button -->
+  <button id="modal-close" class="absolute top-4 right-4 text-gray-400 hover:text-black">&times;</button>
+  
+  <!-- Tabs -->
+  <div class="flex justify-center mb-6 space-x-4">
+    <button id="tab-login" class="tab-btn text-purple-600 font-semibold border-b-2 border-purple-600 pb-1" onclick="toggleForm('login')">Login</button>
+    <button id="tab-signup" class="tab-btn text-gray-500 hover:text-purple-600" onclick="toggleForm('signup')">Sign Up</button>
   </div>
+  
+  <!-- Login Form -->
+  <form id="login-form" class="space-y-4">
+    <input id="login-email" type="email" placeholder="Email" class="w-full border rounded-lg px-4 py-2 text-black bg-white border border-gray-300 " required />
+    <input id="login-password" type="password" placeholder="Password" class="w-full border rounded-lg px-4 py-2 text-black bg-white border border-gray-300 " required />
+    <button id="login-submit" type="submit" class="w-full bg-purple-600 text-white py-2 rounded-lg hover:bg-purple-800">Login</button>
+  </form>
+  
+  <!-- Sign Up Form -->
+  <form id="signup-form" class="space-y-4 hidden">
+    <input id="signup-name" type="text" placeholder="Full Name" class="w-full border rounded-lg px-4 py-2 text-black bg-white border border-gray-300 " required />
+    <input id="signup-email" type="email" placeholder="Email" class="w-full border rounded-lg px-4 py-2 text-black bg-white border border-gray-300 " required />
+    <input id="signup-password" type="password" placeholder="Password" class="w-full border rounded-lg px-4 py-2 text-black bg-white border border-gray-300 " required />
+    <input id="signup-confirm-password" type="password" placeholder="Confirm Password" class="w-full border rounded-lg px-4 py-2 text-black bg-white border border-gray-300 " required />
+    <button id="signup-submit" type="submit" class="w-full bg-purple-600 text-white py-2 rounded-lg hover:bg-purple-700">Sign Up</button>
+  </form>
+</div>
 </div>
 
 <!-- ----------------------- -->
 
 
 
+<section id="allpage" class="">
 
 <!-- Hero Section -->
     <section 
@@ -134,8 +197,7 @@ id="auth-modal" class=" hidden fixed inset-0 bg-black bg-opacity-50 flex items-c
           </button>
           <button
             id="contact-sales-btn"
-            class="text-purple-400 hover:underline transition"
-          >
+            class="text-purple-400 hover:underline transition">
             Contact Sales
           </button>
         </div>
@@ -143,6 +205,8 @@ id="auth-modal" class=" hidden fixed inset-0 bg-black bg-opacity-50 flex items-c
     </section>
    
 <!-- ----------------------- -->
+
+
 
 
 
@@ -195,40 +259,39 @@ id="features" class="mt-40  px-8 max-w-6xl mx-auto text-center">
       </div>
     </section>
 
-    <section 
-    id="user-types" class="mt-40 px-6 max-w-5xl mx-auto text-center">
+<section id="user-types" class="mt-40 px-6 max-w-5xl mx-auto text-center">
   <h2 class="text-4xl font-bold mb-10">Who is CredMan For?</h2>
 
-<!-- feature boxes----------------------------------------------- -->
   <!-- Tab Buttons -->
   <div class="flex justify-center space-x-4 mb-8">
-    <button class="tab-btn px-5 py-2 rounded-xl transition duration-300 ease-in-out bg-purple-700 text-white shadow-lg" onclick="showTab(event, 'students')">Students</button>
-    <button class="tab-btn px-5 py-2 rounded-xl transition duration-300 ease-in-out bg-gray-700 text-white shadow" onclick="showTab(event, 'professionals')">Professionals</button>
-    <button class="tab-btn px-5 py-2 rounded-xl transition duration-300 ease-in-out bg-gray-700 text-white shadow" onclick="showTab(event, 'businesses')">Businesses</button>
+    <button class="tab-btn px-5 py-2 rounded-xl transition duration-300 ease-in-out bg-purple-700 text-white shadow-lg" href="#students-section">Students</button>
+    <button class="tab-btn px-5 py-2 rounded-xl transition duration-300 ease-in-out bg-gray-700 text-white shadow" href="#professionals-section" >Professionals</button>
+    <button class="tab-btn px-5 py-2 rounded-xl transition duration-300 ease-in-out bg-gray-700 text-white shadow" href="#businesses-section" >Businesses</button>
   </div>
 
-<!-- Tab Contents -->
-  <section>
-    <div id="students" class="tab-content">
+  <!-- Tab Contents -->
+  <section id="students-section" class="tab-content">
     <div class="glass p-6 rounded-2xl shadow-xl border border-white/10 backdrop-blur-md bg-white/10">
       <h3 class="text-2xl font-semibold mb-2 text-purple-400">Designed for Students</h3>
       <p class="text-gray-300">Enjoy low-fee cards, budgeting tips, and educational offers tailored to students starting their financial journey.</p>
     </div>
-    </div>
-    <div id="professionals" class="tab-content hidden">
+  </section>
+
+  <section id="professionals-section" class="tab-content hidden">
     <div class="glass p-6 rounded-2xl shadow-xl border border-white/10 backdrop-blur-md bg-white/10">
       <h3 class="text-2xl font-semibold mb-2 text-purple-400">Perfect for Professionals</h3>
       <p class="text-gray-300">Advanced features like real-time analytics, high cashback, and investment tools make CredMan your smart money partner.</p>
     </div>
-    </div>
-    <div id="businesses" class="tab-content hidden">
+  </section>
+
+  <section id="businesses-section" class="tab-content hidden">
     <div class="glass p-6 rounded-2xl shadow-xl border border-white/10 backdrop-blur-md bg-white/10">
       <h3 class="text-2xl font-semibold mb-2 text-purple-400">Built for Businesses</h3>
       <p class="text-gray-300">Manage team expenses, issue employee cards, and get monthly statements — all in one place.</p>
     </div>
-   </div>
+  </section>
 </section>
-</section>
+
 
  <!-- ----------------------- -->
 
@@ -326,35 +389,56 @@ id="features" class="mt-40  px-8 max-w-6xl mx-auto text-center">
 <!-- ----------------------- -->
 
 
-
-    <!-- Testimonials -->
-<section 
-id="testimonials" class="mt-40 px-6 max-w-5xl mx-auto text-center">
+<!-- testimonial -->
+   <section id="testimonials" class="mt-40 px-6 max-w-5xl mx-auto text-center">
   <h2 id="testimonials-heading" class="text-4xl font-bold mb-12">Loved by Thousands</h2>
 
-  <div id="testimonial-slider" class="relative overflow-hidden text-left">
-    <div class="testimonial-slide glass p-6 rounded-xl border border-white/10 shadow-md">
-      <p class="italic text-gray-300">
-        "The best financial tool I've ever used. Everything's under control — no stress, no surprises!"
-      </p>
-      <div class="mt-4 text-purple-400 font-semibold">— Atharva Tijare., UX Designer</div>
+  <div class="relative text-left flex items-center justify-center">
+    
+    <!-- Left Arrow -->
+    <button id="prev" class="absolute -left-10 top-1/2 transform -translate-y-1/2 bg-purple-700 text-white px-3 py-2 rounded-full hover:bg-purple-800 z-10 shadow-lg">
+      ◀
+    </button>
+
+    <!-- Slides -->
+    <div id="testimonial-slider" class="relative w-full max-w-xl overflow-hidden">
+      <div class="testimonial-slide glass p-6 rounded-xl border border-white/10 shadow-md transition-opacity duration-500 ease-in-out">
+        <p class="italic text-gray-300">
+          "The best financial tool I've ever used. Everything's under control — no stress, no surprises!"
+        </p>
+        <div class="mt-4 text-purple-400 font-semibold">— Atharva Tijare., UX Designer</div>
+      </div>
+
+      <div class="testimonial-slide hidden glass p-6 rounded-xl border border-white/10 shadow-md transition-opacity duration-500 ease-in-out">
+        <p class="italic text-gray-300">
+          "CredMan helped me save over ₹15k in just three months. The analytics are 🔥!"
+        </p>
+        <div class="mt-4 text-purple-400 font-semibold">— Yashraj Kolhe., Developer</div>
+      </div>
+
+      <div class="testimonial-slide hidden glass p-6 rounded-xl border border-white/10 shadow-md transition-opacity duration-500 ease-in-out">
+        <p class="italic text-gray-300">
+          "A game-changer for managing expenses. I can't imagine budgeting without it anymore!"
+        </p>
+        <div class="mt-4 text-purple-400 font-semibold">— Gargee Rajput., Product Manager</div>
+      </div>
     </div>
 
-    <div class="testimonial-slide glass p-6 rounded-xl border border-white/10 shadow-md hidden">
-      <p class="italic text-gray-300">
-        "CredMan helped me save over ₹15k in just three months. The analytics are 🔥!"
-      </p>
-      <div class="mt-4 text-purple-400 font-semibold">— Yashraj Kolhe., Developer</div>
-    </div>
+    <!-- Right Arrow -->
+    <button id="next" class="absolute -right-10 top-1/2 transform -translate-y-1/2 bg-purple-700 text-white px-3 py-2 rounded-full hover:bg-purple-800 z-10 shadow-lg">
+      ▶
+    </button>
+  </div>
 
-    <div class="testimonial-slide glass p-6 rounded-xl border border-white/10 shadow-md hidden">
-      <p class="italic text-gray-300">
-        "A game-changer for managing expenses. I can't imagine budgeting without it anymore!"
-      </p>
-      <div class="mt-4 text-purple-400 font-semibold">— Gargee Rajput., Product Manager</div>
-    </div>
+  <!-- Dots -->
+  <div id="dots" class="flex justify-center space-x-2 mt-6">
+    <span class="dot w-3 h-3 bg-purple-700 rounded-full cursor-pointer"></span>
+    <span class="dot w-3 h-3 bg-gray-500 rounded-full cursor-pointer"></span>
+    <span class="dot w-3 h-3 bg-gray-500 rounded-full cursor-pointer"></span>
   </div>
 </section>
+
+
 
 <!-- ----------------------- -->
 
@@ -364,7 +448,7 @@ id="testimonials" class="mt-40 px-6 max-w-5xl mx-auto text-center">
      <p class="mb-4">Made by &#9829- Tushar Shirke </p>
       &copy; 2025 CREDMAN. All rights reserved.
     </footer>
-
+</section>
     <script>
       lucide.createIcons();
 
